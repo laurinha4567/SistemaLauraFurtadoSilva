@@ -4,143 +4,17 @@
  */
 package view;
 
-import bean.Lfs_jogos;
-import dao.Lfs_jogosDao;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.MaskFormatter;
 
 public class JDlgJogos extends javax.swing.JDialog {
-
-    /**
-     * Creates new form JDlgUsuario
-     */
-    boolean incluir = false;
-    boolean pesquisar = false;
-    private MaskFormatter mascaraDataLancamento, mascaraDataAdicionado;
 
     public JDlgJogos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        habilitar(false);
         setTitle("Cadastro Jogos");
-
-        try {
-            mascaraDataLancamento = new MaskFormatter("##/##/####");
-            mascaraDataAdicionado = new MaskFormatter("##/##/####");
-
-            jFmtLfs_data_lancamento.setFormatterFactory(new DefaultFormatterFactory(mascaraDataLancamento));
-            jFmtLfs_data_adicionado.setFormatterFactory(new DefaultFormatterFactory(mascaraDataAdicionado));
-        } catch (ParseException ex) {
-            Logger.getLogger(JDlgUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
-
-    private void habilitar(boolean status) {
-        jTxtIdlfs_Jogos.setEnabled(status);
-        jTxtLfs_nome_jogo.setEnabled(status);
-        jCboLfs_classificacao_indicativa.setEnabled(status);
-        jCboLfs_genero.setEnabled(status);
-        jTxtLfs_preco.setEnabled(status);
-        jTxtLfs_descricao.setEnabled(status);
-        jFmtLfs_data_lancamento.setEnabled(status);
-        jTxtLfs_estoque.setEnabled(status);
-        jCboLfs_idioma.setEnabled(status);
-        jFmtLfs_data_adicionado.setEnabled(status);
-        jTxtLfs_desenvolvedora.setEnabled(status);
-        jTxtLfs_avaliacao_media.setEnabled(status);
-        jTxtLfs_modo_de_jogo.setEnabled(status);
-        jCboLfs_plataforma.setEnabled(status);
-        jChbLfs_status_disponibilidade.setEnabled(status);
-
-        jBtnIncluir.setEnabled(!status);
-        jBtnAlterar.setEnabled(!status);
-        jBtnExcluir.setEnabled(!status);
-        jBtnPesquisar.setEnabled(!status);
-
-        jBtnConfirmar.setEnabled(status);
-        jBtnCancelar.setEnabled(status);
-    }
-
-    public void limpar() {
-        jTxtIdlfs_Jogos.setText("");
-        jTxtLfs_nome_jogo.setText("");
-        jCboLfs_classificacao_indicativa.setSelectedIndex(-1);
-        jCboLfs_genero.setSelectedIndex(-1);
-        jTxtLfs_preco.setText("");
-        jTxtLfs_descricao.setText("");
-        jFmtLfs_data_lancamento.setText("");
-        jTxtLfs_estoque.setText("");
-        jCboLfs_idioma.setSelectedIndex(-1);
-        jFmtLfs_data_adicionado.setText("");
-        jTxtLfs_desenvolvedora.setText("");
-        jTxtLfs_avaliacao_media.setText("");
-        jTxtLfs_modo_de_jogo.setText("");
-        jCboLfs_plataforma.setSelectedIndex(-1);
-        jChbLfs_status_disponibilidade.setSelected(false);
-    }
-
-    public Lfs_jogos viewBean() {
-        Lfs_jogos jogo = new Lfs_jogos();
-        int cod = Integer.parseInt(jTxtIdlfs_Jogos.getText());
-        jogo.setLfs_id_jogo(cod);
-        jogo.setLfs_nome_jogo(jTxtLfs_nome_jogo.getText());
-        jogo.setLfs_classificacao_indicativa(jCboLfs_classificacao_indicativa.getSelectedItem().toString());
-        jogo.setLfs_genero(jCboLfs_genero.getSelectedItem().toString());
-        jogo.setLfs_preco(Double.parseDouble(jTxtLfs_preco.getText()));
-        jogo.setLfs_descricao(jTxtLfs_descricao.getText());
-
-        try {
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            jogo.setLfs_data_lancamento(formato.parse(jFmtLfs_data_lancamento.getText()));
-            jogo.setLfs_data_adicionado(formato.parse(jFmtLfs_data_adicionado.getText()));
-        } catch (ParseException ex) {
-            System.out.println("Erro na conversão da data.");
-        }
-
-        jogo.setLfs_estoque(Integer.parseInt(jTxtLfs_estoque.getText()));
-        jogo.setLfs_idioma(jCboLfs_idioma.getSelectedItem().toString());
-        jogo.setLfs_desenvolvedora(jTxtLfs_desenvolvedora.getText());
-        jogo.setLfs_avaliacao_media(Double.parseDouble(jTxtLfs_avaliacao_media.getText()));
-        jogo.setLfs_modo_de_jogo(jTxtLfs_modo_de_jogo.getText());
-        jogo.setLfs_plataforma(jCboLfs_plataforma.getSelectedItem().toString());
-        jogo.setLfs_status_disponibilidade(jChbLfs_status_disponibilidade.isSelected() ? "S" : "N");
-        return jogo;
-
-    }
-
-    public void beanView(Lfs_jogos jogo) {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        String dataLancamento = formato.format(jogo.getLfs_data_lancamento());
-        String dataAdicionado = formato.format(jogo.getLfs_data_adicionado());
-                
-        jTxtIdlfs_Jogos.setText(String.valueOf(jogo.getLfs_id_jogo()));
-        jTxtLfs_nome_jogo.setText(jogo.getLfs_nome_jogo());
-        jCboLfs_classificacao_indicativa.setSelectedItem(jogo.getLfs_classificacao_indicativa());
-        jCboLfs_genero.setSelectedItem(jogo.getLfs_genero());
-        jTxtLfs_preco.setText(String.valueOf(jogo.getLfs_preco()));
-        jTxtLfs_descricao.setText(jogo.getLfs_descricao());
-        jFmtLfs_data_lancamento.setText(dataLancamento);
-        jTxtLfs_estoque.setText(String.valueOf(jogo.getLfs_estoque()));
-        jCboLfs_idioma.setSelectedItem(jogo.getLfs_idioma());
-        jFmtLfs_data_adicionado.setText(dataAdicionado);
-        jTxtLfs_desenvolvedora.setText(jogo.getLfs_desenvolvedora());
-        jTxtLfs_avaliacao_media.setText(String.valueOf(jogo.getLfs_avaliacao_media()));
-        jTxtLfs_modo_de_jogo.setText(jogo.getLfs_modo_de_jogo());
-        jCboLfs_plataforma.setSelectedItem(jogo.getLfs_plataforma());
-        jChbLfs_status_disponibilidade.setSelected(jogo.getLfs_status_disponibilidade().equals("S"));
-    }
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+    //brasil vai brasil
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -434,74 +308,27 @@ public class JDlgJogos extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxtIdlfs_JogosActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
-        incluir = true;
-        habilitar(true);
-        limpar();
+      
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
-        if (pesquisar == true) {
-            incluir = false;
-            habilitar(true);
-            jTxtIdlfs_Jogos.setEnabled(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Necessário pesquisar antes");
-        }
+       
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
-        if (pesquisar == true) {
-            int resp = JOptionPane.showConfirmDialog(null, "Deseja excluir?");
-            if (resp == JOptionPane.YES_OPTION) {
-                Lfs_jogos jogo = viewBean();
-                Lfs_jogosDao jogosDao = new Lfs_jogosDao();
-                jogosDao.delete(jogo);
-            }
-            limpar();
-            habilitar(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Necessário pesquisar antes");
-        }
+       
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
-        Lfs_jogos jogo = viewBean();
-        Lfs_jogosDao jogosDao = new Lfs_jogosDao();
-
-        if (incluir == true) {
-            jogosDao.insert(jogo);
-        } else {
-            jogosDao.update(jogo);
-        }
-
-        pesquisar = false;
-        incluir = false;
-
-        habilitar(false);
-        limpar();
+      
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
-        incluir = false;
-        pesquisar = false;
-        habilitar(false);
-        limpar();
+       
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-        /*String id = JOptionPane.showInputDialog(null, "Entre com o código");
-        int codigo = Integer.parseInt(id);
-        Lfs_jogosDao jogosDao = new Lfs_jogosDao();
-        Lfs_jogos jogo = (Lfs_jogos) jogosDao.list(codigo);
-        if (jogo == null) {
-            JOptionPane.showMessageDialog(null, "Código não encontrado");
-        } else {
-            beanView(jogo);
-        }*/
-        JDlgJogosPesquisar jDlgJogosPesquisar = new JDlgJogosPesquisar(null, true);
-        jDlgJogosPesquisar.setTelaPai(this);
-        jDlgJogosPesquisar.setVisible(true);
-        pesquisar = true;
+      
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jCboLfs_classificacao_indicativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboLfs_classificacao_indicativaActionPerformed

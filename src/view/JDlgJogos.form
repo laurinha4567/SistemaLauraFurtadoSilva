@@ -134,7 +134,7 @@
                       <Component id="jBtnPesquisar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -192,7 +192,7 @@
                   <Component id="jCboLfs_plataforma" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jChbLfs_status_disponibilidade" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBtnAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -392,7 +392,7 @@
     <Component class="javax.swing.JButton" name="jBtnConfirmar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/confirmar.png"/>
+          <Image iconType="3" name="/img/confirmar.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="confirmar"/>
       </Properties>

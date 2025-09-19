@@ -16,7 +16,8 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         setTitle("Sistema de Vendas");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-
+        
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,37 +125,32 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUsuarioActionPerformed
         // TODO add your handling code here:
-        JDlgUsuario jDlgUsuario = new JDlgUsuario(null, true);
-        jDlgUsuario.setVisible(true);
+        
     }//GEN-LAST:event_jMenuUsuarioActionPerformed
 
     private void jMenuJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuJogosActionPerformed
         // TODO add your handling code here:
-        JDlgJogos jDlgJogos = new JDlgJogos(null, true);
-        jDlgJogos.setVisible(true);
+      
     }//GEN-LAST:event_jMenuJogosActionPerformed
 
     private void jMenuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuClienteActionPerformed
         // TODO add your handling code here:
-        JDlgCliente jDlgCliente = new JDlgCliente(null, true);
-        jDlgCliente.setVisible(true);
+       
     }//GEN-LAST:event_jMenuClienteActionPerformed
 
     private void jMenuVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVendedorActionPerformed
         // TODO add your handling code here:
-        JDlgVendedor jDlgVendedor = new JDlgVendedor(null, true);
-        jDlgVendedor.setVisible(true);
+      
     }//GEN-LAST:event_jMenuVendedorActionPerformed
 
     private void jMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSairActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+       
     }//GEN-LAST:event_jMenuSairActionPerformed
 
     private void jMenuVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVendaActionPerformed
         // TODO add your handling code here:
-        JDlgVenda jDlgVenda = new JDlgVenda(null, true);
-        jDlgVenda.setVisible(true);
+      
     }//GEN-LAST:event_jMenuVendaActionPerformed
 
     /**

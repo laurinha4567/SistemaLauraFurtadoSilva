@@ -4,6 +4,8 @@
  */
 package view;
 
+import tools.Util;
+
 
 public class JDlgVendedor extends javax.swing.JDialog {
 
@@ -16,86 +18,12 @@ public class JDlgVendedor extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        habilitar(false);
         setTitle("Cadastro Vendedor");
-
-        try {
-            mascaraCpf = new MaskFormatter("###.###.###-##");
-            mascaraDataNasc = new MaskFormatter("##/##/####");
-            mascaraTelefone = new MaskFormatter("(##) #####-####");
-
-            jFmtLfs_cpf.setFormatterFactory(new DefaultFormatterFactory(mascaraCpf));
-            jFmtLfs_data_nascimento.setFormatterFactory(new DefaultFormatterFactory(mascaraDataNasc));
-            jFmtLfs_telefone.setFormatterFactory(new DefaultFormatterFactory(mascaraTelefone));
-        } catch (ParseException ex) {
-            Logger.getLogger(JDlgUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    private void habilitar(boolean status) {
-        jTxtIdlfs_vendedor.setEnabled(status);
-        jTxtLfs_descricao.setEnabled(status);
-        jTxtLfs_nome.setEnabled(status);
-        jFmtLfs_cpf.setEnabled(status);
-        jFmtLfs_data_nascimento.setEnabled(status);
-        jFmtLfs_telefone.setEnabled(status);
-        jTxtLfs_salario.setEnabled(status);
-
-        jBtnIncluir.setEnabled(!status);
-        jBtnAlterar.setEnabled(!status);
-        jBtnExcluir.setEnabled(!status);
-        jBtnPesquisar.setEnabled(!status);
-
-        jBtnConfirmar.setEnabled(status);
-        jBtnCancelar.setEnabled(status);
-    }
-
-    public void limpar() {
-        jTxtIdlfs_vendedor.setText("");
-        jTxtLfs_descricao.setText("");
-        jTxtLfs_nome.setText("");
-        jFmtLfs_cpf.setText("");
-        jFmtLfs_data_nascimento.setText("");
-        jFmtLfs_telefone.setText("");
-        jTxtLfs_salario.setText("");
-
-    }
-
-    public Lfs_vendedor viewBean() {
-        Lfs_vendedor vendedor = new Lfs_vendedor();
-        int cod = Integer.parseInt(jTxtIdlfs_vendedor.getText());
-        vendedor.setIdlfs_vendedor(cod);
-        vendedor.setLfs_descricao(jTxtLfs_descricao.getText());
-        vendedor.setLfs_nome(jTxtLfs_nome.getText());
-        vendedor.setLfs_cpf(jFmtLfs_cpf.getText());
-
-        try {
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            vendedor.setLfs_data_nascimento(formato.parse(jFmtLfs_data_nascimento.getText())); // Ajustar conforme necessário
-        } catch (ParseException ex) {
-            System.out.println("Erro na conversão da data.");
-        }
-
         
-        
-        vendedor.setLfs_telefone(jFmtLfs_telefone.getText());
-        vendedor.setLfs_salario(Double.parseDouble(jTxtLfs_salario.getText()));
-        return vendedor;
-    }
-
-    public void beanView(Lfs_vendedor vendedor) {
-        jTxtIdlfs_vendedor.setText(String.valueOf(vendedor.getIdlfs_vendedor()));//
-        jTxtLfs_descricao.setText(vendedor.getLfs_descricao());
-        jTxtLfs_nome.setText(vendedor.getLfs_nome());
-        jFmtLfs_cpf.setText(vendedor.getLfs_cpf());
-        
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        String dataNascimento = formato.format(vendedor.getLfs_data_nascimento());
-        jFmtLfs_data_nascimento.setText(dataNascimento);
-        
-        jFmtLfs_telefone.setText(vendedor.getLfs_telefone());
-        jTxtLfs_salario.setText(String.valueOf(vendedor.getLfs_salario()));
+          Util.habilitar(false, jTxtIdlfs_vendedor,jTxtLfs_descricao,  jTxtLfs_nome,
+                jFmtLfs_cpf, jFmtLfs_data_nascimento, jFmtLfs_telefone, jTxtLfs_salario, 
+                jBtnConfirmar, jBtnCancelar);
+            
     }
 
     /**
@@ -146,9 +74,15 @@ public class JDlgVendedor extends javax.swing.JDialog {
 
         jLabel6.setText("Data de Nascimento");
 
+        jFmtLfs_data_nascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFmtLfs_data_nascimentoActionPerformed(evt);
+            }
+        });
+
         jLabel7.setText("Telefone");
 
-        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar.png"))); // NOI18N
+        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar.jpg"))); // NOI18N
         jBtnConfirmar.setText("confirmar");
         jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,15 +170,11 @@ public class JDlgVendedor extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jFmtLfs_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(79, 79, 79)))
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jFmtLfs_data_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(11, 11, 11)))
+                            .addComponent(jLabel6))
                         .addContainerGap(29, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
@@ -306,7 +236,7 @@ public class JDlgVendedor extends javax.swing.JDialog {
                     .addComponent(jBtnAlterar)
                     .addComponent(jBtnIncluir)
                     .addComponent(jBtnCancelar))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -317,81 +247,46 @@ public class JDlgVendedor extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxtIdlfs_vendedorActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
-        incluir = true;
-        habilitar(true);
-        limpar();
+         Util.habilitar(true,jTxtIdlfs_vendedor,jTxtLfs_descricao,  jTxtLfs_nome,
+                jFmtLfs_cpf, jFmtLfs_data_nascimento, jFmtLfs_telefone, jTxtLfs_salario, 
+                jBtnConfirmar, jBtnCancelar);
+                
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar); 
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
 
-        if (pesquisar == true) {
-            incluir = false;
-            habilitar(true);
-            jTxtIdlfs_vendedor.setEnabled(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Necessário pesquisar antes");
-        }
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
-        if (pesquisar == true) {
-            int resp = JOptionPane.showConfirmDialog(null, "Deseja excluir?");
-            if (resp == JOptionPane.YES_OPTION) {
-                Lfs_vendedor vendedor = viewBean();
-                Lfs_vendedorDao vendedorDao = new Lfs_vendedorDao();
-                vendedorDao.delete(vendedor);
-            }
-            limpar();
-            habilitar(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Necessário pesquisar antes");
-        }
+        Util.pergunta("Desja excluir??");
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-        Lfs_vendedor vendedor = viewBean();
-        Lfs_vendedorDao vendedorDao = new Lfs_vendedorDao();
-
-        if (incluir == true) {
-            vendedorDao.insert(vendedor);
-        } else {
-            vendedorDao.update(vendedor);
-        }
-
-        pesquisar = false;
-        incluir = false;
-
-        habilitar(false);
-        limpar();
+       int cod = Util.strToInt(jTxtIdlfs_vendedor.getText());
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
-        incluir = false;
-        pesquisar = false;
-        habilitar(false);
-        limpar();
+         Util.habilitar(false,jTxtIdlfs_vendedor,jTxtLfs_descricao,  jTxtLfs_nome,
+                jFmtLfs_cpf, jFmtLfs_data_nascimento, jFmtLfs_telefone, jTxtLfs_salario, 
+                jBtnConfirmar, jBtnCancelar);
+                
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+          Util.limpar(jTxtIdlfs_vendedor, jTxtLfs_descricao, jTxtLfs_nome);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-        /*String id = JOptionPane.showInputDialog(null, "Entre com o código");
-        int codigo = Integer.parseInt(id);
-        Lfs_vendedorDao vendedorDao = new Lfs_vendedorDao();
-        Lfs_vendedor vendedor = (Lfs_vendedor) vendedorDao.list(codigo);
-        if (vendedor == null) {
-            JOptionPane.showMessageDialog(null, "Código não encontrado");
-        } else {
-            beanView(vendedor);
-        }*/
-        JDlgVendedorPesquisar jDlgVendedorPesquisar = new JDlgVendedorPesquisar(null, true);
-        jDlgVendedorPesquisar.setTelaPai(this);
-        jDlgVendedorPesquisar.setVisible(true);
-        pesquisar = true;
+       
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jTxtLfs_salarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtLfs_salarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtLfs_salarioActionPerformed
+
+    private void jFmtLfs_data_nascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtLfs_data_nascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFmtLfs_data_nascimentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -421,11 +316,7 @@ public class JDlgVendedor extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+       
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {

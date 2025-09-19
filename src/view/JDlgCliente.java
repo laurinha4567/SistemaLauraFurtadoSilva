@@ -4,152 +4,28 @@
  */
 package view;
 
-import bean.Lfs_cliente;
-import dao.Lfs_clienteDao;
-import java.lang.System.Logger.Level;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.MaskFormatter;
+import tools.Util;
 
 public class JDlgCliente extends javax.swing.JDialog {
 
     /**
      * Creates new form JDlgUsuario
      */
-    boolean incluir = false;
-    boolean pesquisar = false;
-    private MaskFormatter mascaraCpf, mascaraDataNasc, mascaraDataUltimoLogin, mascaraDataCadastro, mascaraTelefone, mascaraRG;
 
     public JDlgCliente(java.awt.Frame parent, boolean modal) {
+        
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        habilitar(false);
         setTitle("Cadastro Cliente");
-
-        try {
-            mascaraCpf = new MaskFormatter("###.###.###-##");
-            mascaraDataNasc = new MaskFormatter("##/##/####");
-            mascaraDataUltimoLogin = new MaskFormatter("##/##/####");
-            mascaraDataCadastro = new MaskFormatter("##/##/####");
-            mascaraTelefone = new MaskFormatter("(##) #####-####");
-            mascaraRG = new MaskFormatter("#.###.###");
-
-            jFmtLfs_cpf.setFormatterFactory(new DefaultFormatterFactory(mascaraCpf));
-            jFmtLfs_dataNascimento.setFormatterFactory(new DefaultFormatterFactory(mascaraDataNasc));
-            jFmtLfs_dataUltimoLogin.setFormatterFactory(new DefaultFormatterFactory(mascaraDataUltimoLogin));
-            jFmtLfs_dataCadastro.setFormatterFactory(new DefaultFormatterFactory(mascaraDataCadastro));
-            jFmtLfs_telefone.setFormatterFactory(new DefaultFormatterFactory(mascaraTelefone));
-            jFmtLfs_RG.setFormatterFactory(new DefaultFormatterFactory(mascaraRG));
-        } catch (ParseException ex) {
-            System.getLogger(JDlgCliente.class.getName()).log(Level.ERROR, (String) null, ex);
-        }
-    }
-
-    private void habilitar(boolean status) {
-        jTxtIdlfs_Cliente.setEnabled(status);
-        jTxtLfs_Nome_completo.setEnabled(status);
-        jCboLfs_genero.setEnabled(status);
-        jFmtLfs_cpf.setEnabled(status);
-        jFmtLfs_dataNascimento.setEnabled(status);
-        jPwdLfs_senha.setEnabled(status);
-        jFmtLfs_RG.setEnabled(status);
-        jTxtLfs_Cep.setEnabled(status);
-        jTxtLfs_email.setEnabled(status);
-        jFmtLfs_telefone.setEnabled(status);
-        jCboLfs_forma_pagamento.setEnabled(status);
-        jFmtLfs_dataUltimoLogin.setEnabled(status);
-        jTxtLfs_preferencias.setEnabled(status);
-        jTxtLfs_observacoes.setEnabled(status);
-        jFmtLfs_dataCadastro.setEnabled(status);
-
-        jBtnIncluir.setEnabled(!status);
-        jBtnAlterar.setEnabled(!status);
-        jBtnExcluir.setEnabled(!status);
-        jBtnPesquisar.setEnabled(!status);
-
-        jBtnConfirmar.setEnabled(status);
-        jBtnCancelar.setEnabled(status);
-    }
-
-    public void limpar() {
-        jTxtIdlfs_Cliente.setText("");
-        jTxtLfs_Nome_completo.setText("");
-        jCboLfs_genero.setSelectedIndex(-1);
-        jFmtLfs_cpf.setText("");
-        jFmtLfs_dataNascimento.setText("");
-        jPwdLfs_senha.setText("");
-        jFmtLfs_RG.setText("");
-        jTxtLfs_Cep.setText("");
-        jTxtLfs_email.setText("");
-        jFmtLfs_telefone.setText("");
-        jCboLfs_forma_pagamento.setSelectedIndex(-1);
-        jFmtLfs_dataUltimoLogin.setText("");
-        jTxtLfs_preferencias.setText("");
-        jTxtLfs_observacoes.setText("");
-        jFmtLfs_dataCadastro.setText("");
-    }
-
-    public Lfs_cliente viewBean() {
-
-        Lfs_cliente cliente = new Lfs_cliente();
-        int cod = Integer.parseInt(jTxtIdlfs_Cliente.getText());
-        cliente.setIdlfs_Cliente(cod);
-        cliente.setLfs_Nome_completo(jTxtLfs_Nome_completo.getText());
-        cliente.setLfs_genero(jCboLfs_genero.getSelectedItem().toString());
-        cliente.setLfs_cpf(jFmtLfs_cpf.getText());
-
-        try {
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            cliente.setLfs_dataNascimento(formato.parse(jFmtLfs_dataNascimento.getText()));
-            cliente.setLfs_dataUltimoLogin(formato.parse(jFmtLfs_dataUltimoLogin.getText()));
-            cliente.setLfs_dataCadastro(formato.parse(jFmtLfs_dataCadastro.getText()));
-        } catch (ParseException ex) {
-            System.out.println("Erro na conversão da data.");
-        }
-
-        cliente.setLfs_senha(jPwdLfs_senha.getText());
-        cliente.setLfs_RG(jFmtLfs_RG.getText());
-        cliente.setLfs_Cep(jTxtLfs_Cep.getText());
-        cliente.setLfs_email(jTxtLfs_email.getText());
-        cliente.setLfs_telefone(jFmtLfs_telefone.getText());
-        cliente.setLfs_forma_pagamento(jCboLfs_forma_pagamento.getSelectedItem().toString());
-        cliente.setLfs_preferencias(jTxtLfs_preferencias.getText());
-        cliente.setLfs_observacoes(jTxtLfs_observacoes.getText());
-
-        return cliente;
-    }
-
-    public void beanView(Lfs_cliente cliente) {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-
-        jTxtIdlfs_Cliente.setText(String.valueOf(cliente.getIdlfs_Cliente()));
-        jTxtLfs_Nome_completo.setText(cliente.getLfs_Nome_completo());
-        jCboLfs_genero.setSelectedItem(cliente.getLfs_genero());
-        jFmtLfs_cpf.setText(cliente.getLfs_cpf());
-
-        String dataNasc = formato.format(cliente.getLfs_dataNascimento());
-        jFmtLfs_dataNascimento.setText(dataNasc);
-
-        jPwdLfs_senha.setText(cliente.getLfs_senha());
-        jFmtLfs_RG.setText(cliente.getLfs_RG());
-        jTxtLfs_Cep.setText(cliente.getLfs_Cep());
-        jTxtLfs_email.setText(cliente.getLfs_email());
-        jFmtLfs_telefone.setText(cliente.getLfs_telefone());
-        jCboLfs_forma_pagamento.setSelectedItem(cliente.getLfs_forma_pagamento());
         
-        String dataUltimoLogin = formato.format(cliente.getLfs_dataNascimento());
-        jFmtLfs_dataUltimoLogin.setText(dataUltimoLogin);
-        
-        jTxtLfs_preferencias.setText(cliente.getLfs_preferencias());
-        jTxtLfs_observacoes.setText(cliente.getLfs_observacoes());
-        
-        String dataCadastro = formato.format(cliente.getLfs_dataNascimento());
-        jFmtLfs_dataCadastro.setText(dataCadastro);
-    }
+          Util.habilitar(false, jTxtIdlfs_Cliente,jTxtLfs_Nome_completo,  jCboLfs_genero,
+                jFmtLfs_cpf, jFmtLfs_dataNascimento, jPwdLfs_senha, jFmtLfs_RG, 
+                jTxtLfs_Cep,    jTxtLfs_email, jFmtLfs_telefone, jCboLfs_forma_pagamento,
+                jFmtLfs_dataUltimoLogin,jTxtLfs_preferencias,jTxtLfs_observacoes,
+                jFmtLfs_dataCadastro,jBtnConfirmar, jBtnCancelar);
 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -214,6 +90,12 @@ public class JDlgCliente extends javax.swing.JDialog {
 
         jLabel4.setText("CPF");
 
+        jFmtLfs_cpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFmtLfs_cpfActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("Data de Nascimento");
 
         jLabel6.setText("Senha");
@@ -268,7 +150,7 @@ public class JDlgCliente extends javax.swing.JDialog {
             }
         });
 
-        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar.png"))); // NOI18N
+        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar.jpg"))); // NOI18N
         jBtnConfirmar.setText("confirmar");
         jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,7 +303,7 @@ public class JDlgCliente extends javax.swing.JDialog {
                     .addComponent(jTxtLfs_preferencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTxtLfs_observacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFmtLfs_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnIncluir)
                     .addComponent(jBtnAlterar)
@@ -444,77 +326,45 @@ public class JDlgCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxtLfs_observacoesActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
-        incluir = true;
-        habilitar(true);
-        limpar();
+         Util.habilitar(true, jTxtIdlfs_Cliente,jTxtLfs_Nome_completo,  jCboLfs_genero,
+                jFmtLfs_cpf, jFmtLfs_dataNascimento, jPwdLfs_senha, jFmtLfs_RG, 
+                jTxtLfs_Cep,    jTxtLfs_email, jFmtLfs_telefone, jCboLfs_forma_pagamento,
+                jFmtLfs_dataUltimoLogin,jTxtLfs_preferencias,jTxtLfs_observacoes,
+                jFmtLfs_dataCadastro, jBtnConfirmar, jBtnCancelar);
+                
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
-        if (pesquisar == true) {
-            incluir = false;
-            habilitar(true);
-            jTxtIdlfs_Cliente.setEnabled(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Necessário pesquisar antes");
-        }
+       
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
-        if (pesquisar == true) {
-            int resp = JOptionPane.showConfirmDialog(null, "Deseja excluir?");
-            if (resp == JOptionPane.YES_OPTION) {
-                Lfs_cliente cliente = viewBean();
-                Lfs_clienteDao clienteDao = new Lfs_clienteDao();
-                clienteDao.delete(cliente);
-            }
-            limpar();
-            habilitar(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Necessário pesquisar antes");
-        }
+       Util.pergunta("Desja excluir??"); 
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
-        Lfs_cliente cliente = viewBean();
-        Lfs_clienteDao clienteDao = new Lfs_clienteDao();
-
-        if (incluir == true) {
-            clienteDao.insert(cliente);
-        } else {
-            clienteDao.update(cliente);
-        }
-
-        pesquisar = false;
-        incluir = false;
-
-        habilitar(false);
-        limpar();
+        int cod = Util.strToInt(jTxtIdlfs_Cliente.getText());
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
-        incluir = false;
-        pesquisar = false;
-        habilitar(false);
-        limpar();
+       Util.habilitar(false, jTxtIdlfs_Cliente,jTxtLfs_Nome_completo,  jCboLfs_genero,
+                jFmtLfs_cpf, jFmtLfs_dataNascimento, jPwdLfs_senha, jFmtLfs_RG, 
+                jTxtLfs_Cep,    jTxtLfs_email, jFmtLfs_telefone, jCboLfs_forma_pagamento,
+                jFmtLfs_dataUltimoLogin,jTxtLfs_preferencias,jTxtLfs_observacoes,
+                jFmtLfs_dataCadastro, jBtnConfirmar, jBtnCancelar);
+                
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+          Util.limpar(jTxtIdlfs_Cliente, jTxtLfs_Nome_completo, jCboLfs_genero);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-        /*String id = JOptionPane.showInputDialog(null, "Entre com o código");
-        int codigo = Integer.parseInt(id);
-        Lfs_clienteDao clienteDao = new Lfs_clienteDao();
-        Lfs_cliente cliente = (Lfs_cliente) clienteDao.list(codigo);
-        if (cliente == null) {
-            JOptionPane.showMessageDialog(null, "Código não encontrado");
-        } else {
-            beanView(cliente);
-        }*/
-
-        JDlgClientePesquisar jDlgClientePesquisar = new JDlgClientePesquisar(null, true);
-        jDlgClientePesquisar.setTelaPai(this);
-        jDlgClientePesquisar.setVisible(true);
-
-        pesquisar = true;
+       
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
+
+    private void jFmtLfs_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtLfs_cpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFmtLfs_cpfActionPerformed
 
     /**
      * @param args the command line arguments

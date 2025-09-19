@@ -180,7 +180,7 @@
                   <Component id="jTxtLfs_observacoes" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jFmtLfs_dataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBtnIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -237,6 +237,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFmtLfs_cpf">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmtLfs_cpfActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFmtLfs_dataNascimento">
     </Component>
@@ -367,7 +370,7 @@
     <Component class="javax.swing.JButton" name="jBtnConfirmar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/confirmar.png"/>
+          <Image iconType="3" name="/img/confirmar.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="confirmar"/>
       </Properties>

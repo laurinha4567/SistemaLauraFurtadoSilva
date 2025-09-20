@@ -247,6 +247,7 @@ public class JDlgUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+<<<<<<< HEAD
    Util.habilitar(true,  jTxtIdusuario,jTxtNome,  jTxtApelido,
                 jFmtCpf, jFmtDataNascimento, jPwdSenha, jCboNivel, 
                 jChbAtivo,    jBtnConfirmar, jBtnCancelar);
@@ -255,6 +256,9 @@ public class JDlgUsuario extends javax.swing.JDialog {
         Util.limpar( jTxtIdusuario,jTxtNome,  jTxtApelido,
                 jFmtCpf, jFmtDataNascimento, jPwdSenha, jCboNivel, 
                 jChbAtivo,    jBtnConfirmar);       
+=======
+    
+>>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
@@ -262,6 +266,7 @@ public class JDlgUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
+<<<<<<< HEAD
         Util.habilitar(false,  jTxtIdusuario,jTxtNome,  jTxtApelido,
                 jFmtCpf, jFmtDataNascimento, jPwdSenha, jCboNivel, 
                 jChbAtivo,    jBtnConfirmar, jBtnCancelar);
@@ -270,6 +275,9 @@ public class JDlgUsuario extends javax.swing.JDialog {
         Util.limpar( jTxtIdusuario,jTxtNome,  jTxtApelido,
                 jFmtCpf, jFmtDataNascimento, jPwdSenha, jCboNivel, 
                 jChbAtivo,    jBtnConfirmar);   
+=======
+       int cod = Util.strToInt(jTxtIdusuario.getText());
+>>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
        
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
@@ -283,9 +291,13 @@ public class JDlgUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
+<<<<<<< HEAD
   JDlgUsuariosPesquisar jDlgUsuariosPesquisar = new JDlgUsuariosPesquisar(null, true);
         jDlgUsuariosPesquisar.setTelaPai(this);
         jDlgUsuariosPesquisar.setVisible(true);     
+=======
+     
+>>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jTxtIdusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtIdusuarioActionPerformed

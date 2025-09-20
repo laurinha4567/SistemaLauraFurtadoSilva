@@ -3,7 +3,15 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+<<<<<<< HEAD
             <name>SistemaLauraFurtadoSilva</name>
+=======
+<<<<<<< HEAD
+            <name>SistemaLauraSilva</name>
+=======
+            <name>SistemaLauraFurtado</name>
+>>>>>>> 129295e7c9ea08e2e04787f687ed019e99456f32
+>>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

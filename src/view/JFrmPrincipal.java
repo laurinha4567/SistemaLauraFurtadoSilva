@@ -4,7 +4,6 @@
  */
 package view;
 
-import javax.swing.JFrame;
 
 public class JFrmPrincipal extends javax.swing.JFrame {
 
@@ -14,10 +13,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     public JFrmPrincipal() {
         initComponents();
         setTitle("Sistema de Vendas");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+      
     }
-        
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,16 +37,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-<<<<<<< HEAD
-        jMenuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-product-24.png"))); // NOI18N
         jMenuCadastro.setText("Cadastro");
 
         jMenuUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-=======
-        jMenuCadastro.setText("Cadastro");
-
-        jMenuUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
         jMenuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-user-24.png"))); // NOI18N
         jMenuUsuario.setText("Usuario");
         jMenuUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -58,11 +49,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuUsuario);
 
-<<<<<<< HEAD
         jMenuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-=======
-        jMenuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
         jMenuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-search-client-24.png"))); // NOI18N
         jMenuCliente.setText("Cliente");
         jMenuCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -72,11 +59,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuCliente);
 
-<<<<<<< HEAD
         jMenuVendedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-=======
-        jMenuVendedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
         jMenuVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-reseller-24.png"))); // NOI18N
         jMenuVendedor.setText("Vendedor");
         jMenuVendedor.addActionListener(new java.awt.event.ActionListener() {
@@ -86,11 +69,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuVendedor);
 
-<<<<<<< HEAD
         jMenuJogos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
-=======
-        jMenuJogos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_DOWN_MASK));
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
         jMenuJogos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-game-controller-24.png"))); // NOI18N
         jMenuJogos.setText("Jogos");
         jMenuJogos.addActionListener(new java.awt.event.ActionListener() {
@@ -100,11 +79,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuJogos);
 
-<<<<<<< HEAD
         jMenuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-=======
-        jMenuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
         jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
         jMenuSair.setText("Sair");
         jMenuSair.addActionListener(new java.awt.event.ActionListener() {
@@ -116,16 +91,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuCadastro);
 
-<<<<<<< HEAD
-        jMenuMovimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-online-shop-sale-24.png"))); // NOI18N
         jMenuMovimento.setText("Movimento");
 
         jMenuVenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-=======
-        jMenuMovimento.setText("Movimento");
-
-        jMenuVenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
         jMenuVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-online-shop-sale-24.png"))); // NOI18N
         jMenuVenda.setText("Venda");
         jMenuVenda.addActionListener(new java.awt.event.ActionListener() {
@@ -155,22 +123,22 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUsuarioActionPerformed
         // TODO add your handling code here:
-        
+     
     }//GEN-LAST:event_jMenuUsuarioActionPerformed
 
     private void jMenuJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuJogosActionPerformed
         // TODO add your handling code here:
-      
+     
     }//GEN-LAST:event_jMenuJogosActionPerformed
 
     private void jMenuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuClienteActionPerformed
         // TODO add your handling code here:
-       
+      
     }//GEN-LAST:event_jMenuClienteActionPerformed
 
     private void jMenuVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVendedorActionPerformed
         // TODO add your handling code here:
-      
+        
     }//GEN-LAST:event_jMenuVendedorActionPerformed
 
     private void jMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSairActionPerformed
@@ -180,7 +148,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVendaActionPerformed
         // TODO add your handling code here:
-      
+       
     }//GEN-LAST:event_jMenuVendaActionPerformed
 
     /**

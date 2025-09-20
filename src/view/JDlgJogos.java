@@ -327,7 +327,7 @@ public class JDlgJogos extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
-<<<<<<< HEAD
+
        Util.habilitar(true,  jTxtIdlfs_Jogos,jTxtLfs_nome_jogo,  jCboLfs_classificacao_indicativa,
                 jCboLfs_genero, jTxtLfs_preco, jTxtLfs_descricao, jFmtLfs_data_lancamento, 
                 jTxtLfs_estoque, jCboLfs_idioma,jFmtLfs_data_adicionado,jTxtLfs_desenvolvedora,jTxtLfs_avaliacao_media,
@@ -338,9 +338,9 @@ public class JDlgJogos extends javax.swing.JDialog {
                 jCboLfs_genero, jTxtLfs_preco, jTxtLfs_descricao, jFmtLfs_data_lancamento, 
                 jTxtLfs_estoque, jCboLfs_idioma,jFmtLfs_data_adicionado,jTxtLfs_desenvolvedora,jTxtLfs_avaliacao_media,
                jTxtLfs_modo_de_jogo, jCboLfs_plataforma, jChbLfs_status_disponibilidade);   
-=======
+
        
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
+
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
@@ -348,7 +348,7 @@ public class JDlgJogos extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
-<<<<<<< HEAD
+
          Util.habilitar(false,  jTxtIdlfs_Jogos,jTxtLfs_nome_jogo,  jCboLfs_classificacao_indicativa,
                 jCboLfs_genero, jTxtLfs_preco, jTxtLfs_descricao, jFmtLfs_data_lancamento, 
                 jTxtLfs_estoque, jCboLfs_idioma,jFmtLfs_data_adicionado,jTxtLfs_desenvolvedora,jTxtLfs_avaliacao_media,
@@ -359,9 +359,9 @@ public class JDlgJogos extends javax.swing.JDialog {
                 jCboLfs_genero, jTxtLfs_preco, jTxtLfs_descricao, jFmtLfs_data_lancamento, 
                 jTxtLfs_estoque, jCboLfs_idioma,jFmtLfs_data_adicionado,jTxtLfs_desenvolvedora,jTxtLfs_avaliacao_media,
                jTxtLfs_modo_de_jogo, jCboLfs_plataforma, jChbLfs_status_disponibilidade);   
-=======
+
         int cod = Util.strToInt(jTxtIdlfs_Jogos.getText());
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
+
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
@@ -375,13 +375,13 @@ public class JDlgJogos extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-<<<<<<< HEAD
+
 JDlgJogosPesquisar jDlgJogosPesquisar = new JDlgJogosPesquisar(null, true);
         jDlgJogosPesquisar.setTelaPai(this);
         jDlgJogosPesquisar.setVisible(true);      
-=======
+
       
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
+
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jCboLfs_classificacao_indicativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboLfs_classificacao_indicativaActionPerformed

@@ -336,7 +336,7 @@ public class JDlgCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
-<<<<<<< HEAD
+
 Util.habilitar(true, jTxtIdlfs_Cliente,jTxtLfs_Nome_completo,  jCboLfs_genero,
                 jFmtLfs_cpf, jFmtLfs_dataNascimento, jPwdLfs_senha, jFmtLfs_RG, 
                 jTxtLfs_Cep,    jTxtLfs_email, jFmtLfs_telefone, jCboLfs_forma_pagamento,
@@ -349,9 +349,9 @@ Util.habilitar(true, jTxtIdlfs_Cliente,jTxtLfs_Nome_completo,  jCboLfs_genero,
                 jTxtLfs_Cep,    jTxtLfs_email, jFmtLfs_telefone, jCboLfs_forma_pagamento,
                 jFmtLfs_dataUltimoLogin,jTxtLfs_preferencias,jTxtLfs_observacoes,
                 jFmtLfs_dataCadastro);       
-=======
+
        
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
+
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
@@ -359,7 +359,7 @@ Util.habilitar(true, jTxtIdlfs_Cliente,jTxtLfs_Nome_completo,  jCboLfs_genero,
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
-<<<<<<< HEAD
+
         Util.habilitar(false, jTxtIdlfs_Cliente,jTxtLfs_Nome_completo,  jCboLfs_genero,
                 jFmtLfs_cpf, jFmtLfs_dataNascimento, jPwdLfs_senha, jFmtLfs_RG, 
                 jTxtLfs_Cep,    jTxtLfs_email, jFmtLfs_telefone, jCboLfs_forma_pagamento,
@@ -372,10 +372,9 @@ Util.habilitar(true, jTxtIdlfs_Cliente,jTxtLfs_Nome_completo,  jCboLfs_genero,
                 jTxtLfs_Cep,    jTxtLfs_email, jFmtLfs_telefone, jCboLfs_forma_pagamento,
                 jFmtLfs_dataUltimoLogin,jTxtLfs_preferencias,jTxtLfs_observacoes,
                 jFmtLfs_dataCadastro);       
-                              
-=======
+
         int cod = Util.strToInt(jTxtIdlfs_Cliente.getText());
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
+
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
@@ -390,13 +389,13 @@ Util.habilitar(true, jTxtIdlfs_Cliente,jTxtLfs_Nome_completo,  jCboLfs_genero,
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-<<<<<<< HEAD
+
      JDlgClientePesquisar jDlgClientePesquisar = new JDlgClientePesquisar(null, true);
         jDlgClientePesquisar.setTelaPai(this);
         jDlgClientePesquisar.setVisible(true);       
-=======
+
        
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
+
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jFmtLfs_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtLfs_cpfActionPerformed

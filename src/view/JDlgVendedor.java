@@ -255,7 +255,7 @@ public class JDlgVendedor extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
-<<<<<<< HEAD
+
  Util.habilitar(true, jTxtIdlfs_vendedor,jTxtLfs_descricao,  jTxtLfs_nome,
                 jFmtLfs_cpf, jFmtLfs_data_nascimento, jFmtLfs_telefone, jTxtLfs_salario, 
                 jBtnConfirmar ,jBtnCancelar);
@@ -264,9 +264,7 @@ public class JDlgVendedor extends javax.swing.JDialog {
         Util.limpar( jTxtIdlfs_vendedor, jTxtLfs_descricao,  jTxtLfs_nome,
                 jFmtLfs_cpf, jFmtLfs_data_nascimento, jFmtLfs_telefone, jTxtLfs_salario, 
                 jBtnConfirmar );  
-=======
 
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
@@ -275,7 +273,7 @@ public class JDlgVendedor extends javax.swing.JDialog {
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
+
         Util.habilitar(false, jTxtIdlfs_vendedor,jTxtLfs_descricao,  jTxtLfs_nome,
                 jFmtLfs_cpf, jFmtLfs_data_nascimento, jFmtLfs_telefone, jTxtLfs_salario, 
                 jBtnConfirmar ,jBtnCancelar);
@@ -284,9 +282,9 @@ public class JDlgVendedor extends javax.swing.JDialog {
         Util.limpar( jTxtIdlfs_vendedor, jTxtLfs_descricao,  jTxtLfs_nome,
                 jFmtLfs_cpf, jFmtLfs_data_nascimento, jFmtLfs_telefone, jTxtLfs_salario, 
                 jBtnConfirmar );  
-=======
+
        int cod = Util.strToInt(jTxtIdlfs_vendedor.getText());
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
+
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
@@ -299,13 +297,12 @@ public class JDlgVendedor extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-<<<<<<< HEAD
+
   JDlgVendedorPesquisar jDlgVendedorPesquisar = new JDlgVendedorPesquisar(null, true);
         jDlgVendedorPesquisar.setTelaPai(this);
-        jDlgVendedorPesquisar.setVisible(true);       
-=======
+
        
->>>>>>> ef6e7148ba16cbceb1534559128bb3d657878915
+
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jTxtLfs_salarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtLfs_salarioActionPerformed

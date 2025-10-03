@@ -10,7 +10,8 @@ package view;
  */
 public class JDlgJogosPesquisar extends javax.swing.JDialog {
         
-        JDlgJogos jDlgJogos;
+       private JDlgJogos jDlgJogos;
+         ControlerJogos controlerJogos;
     /**
      * Creates new form JDlgUsuariosPesquisar
      */
@@ -20,12 +21,19 @@ public class JDlgJogosPesquisar extends javax.swing.JDialog {
         setTitle("Pesquisar Jogos");
         setLocationRelativeTo(null);
         
+        
+         controlerJogos = new ControlerJogos();
+    JogosDao jogosDAO = new JogosDao();
+      List lista = (List) jogosDAO.listAll();
+      controlerJogos.setList(lista);
+        jTable1.setModel(controlerJogos);
+        
       
         
     }
 
     
-    public void setTelaPai(JDlgJogos jDlgJogos){
+    public void setTelaAnterior(JDlgJogos jDlgJogos){
        this.jDlgJogos = jDlgJogos;
     }
     /**
@@ -89,7 +97,9 @@ public class JDlgJogosPesquisar extends javax.swing.JDialog {
 
     private void JBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnOkActionPerformed
       
-        setVisible(false);// TODO add your handling code here:
+      JogosBean jogosBean =  controlerJogos.getBean( jTable1.getSelectedRow() );
+     jDlgJogos.beanView(JogosBean);
+         setVisible(false);
     }//GEN-LAST:event_JBtnOkActionPerformed
 
     /**

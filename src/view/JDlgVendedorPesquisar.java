@@ -10,7 +10,8 @@ package view;
  */
 public class JDlgVendedorPesquisar extends javax.swing.JDialog {
         
-        JDlgVendedor jDlgVendedor;
+       private JDlgVendedor jDlgVendedor;
+        ControlerVendedor controlerVendedor;
     /**
      * Creates new form JDlgVendedorPesquisar
      */
@@ -19,6 +20,12 @@ public class JDlgVendedorPesquisar extends javax.swing.JDialog {
         initComponents();
         setTitle("Pesquisar vendedor");
         setLocationRelativeTo(null);
+        
+         controlerVendedor = new ControlerVendedor();
+    VendedorDao vendedorDAO = new VendedorDao();
+      List lista = (List) vendedorDAO.listAll();
+      controlerVendedor.setList(lista);
+        jTable1.setModel(controlerVendedor);
         
     }
 
@@ -86,8 +93,9 @@ public class JDlgVendedorPesquisar extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnOkActionPerformed
-        
-        setVisible(false);// TODO add your handling code here:
+        vendedorBean vendedorBean =  controlervendedor.getBean( jTable1.getSelectedRow() );
+     jDlgvendedor.beanView(vendedorBean);
+         setVisible(false); 
     }//GEN-LAST:event_JBtnOkActionPerformed
 
     /**

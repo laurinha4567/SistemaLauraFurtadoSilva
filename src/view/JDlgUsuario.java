@@ -34,7 +34,7 @@ public class JDlgUsuario extends javax.swing.JDialog {
          jFmtDataNascimento.setText(Util.dateToStr(usuarios.getDataNascimento()));
          jPwdSenha.setText(usuarios.getSenha());
          jCboNivel.setSelectedIndex(usuarios.getNivel());
-         jChbAtivo.setSelected(usuarios.getAtivo().equals("S"));
+        
    
     }
          public Usuarios viewBean(){
@@ -47,12 +47,7 @@ public class JDlgUsuario extends javax.swing.JDialog {
         usuarios.setCpf(jFmtCpf.getText());
          usuarios.setDataNascimento( Util.strToDate( jFmtDataNascimento.getText()));
        usuarios.setSenha(jPwdSenha.getText());
-          usuarios.setNivel(jCboNivel.getSelectedIndex());
-          if(jChbAtivo.isSelected()== true){
-          usuarios.setAtivo("S");
-          } else {
-               usuarios.setAtivo("N");          
-          } 
+          
    
         return usuarios;
     }

@@ -10,7 +10,8 @@ package view;
  */
 public class JDlgClientePesquisar extends javax.swing.JDialog {
       
-        JDlgCliente jDlgCliente;
+       private JDlgCliente jDlgCliente;
+       ControlerCliente controlerCliente;
     /**
      * Creates new form JDlgClientePesquisar
      */
@@ -20,11 +21,17 @@ public class JDlgClientePesquisar extends javax.swing.JDialog {
         setTitle("Pesquisar clientes");
         setLocationRelativeTo(null);
         
+        controlerCliente = new ControlerCliente();
+    ClienteDao clienteDAO = new ClienteDao();
+      List lista = (List) clienteDAO.listAll();
+      controlerCliente.setList(lista);
+        jTable1.setModel(controlerCliente);
+        
         
     }
 
     
-    public void setTelaPai(JDlgCliente jDlgCliente){
+    public void setTelaAnterior(JDlgCliente jDlgCliente){
        this.jDlgCliente = jDlgCliente;
     }
     /**
@@ -88,7 +95,9 @@ public class JDlgClientePesquisar extends javax.swing.JDialog {
 
     private void JBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnOkActionPerformed
        
-        setVisible(false);// TODO add your handling code here:
+       ClienteBean clienteBean =  controlerCliente.getBean( jTable1.getSelectedRow() );
+     jDlgCliente.beanView(ClienteBean);
+         setVisible(false);
     }//GEN-LAST:event_JBtnOkActionPerformed
 
     /**

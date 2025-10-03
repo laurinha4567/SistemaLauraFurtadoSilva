@@ -10,7 +10,7 @@ package view;
  */
 public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
         
-      private JDlgUsuario jDlgUsuario;
+      private JDlgUsuario jDlgUsuarios;
        ControlerUsuarios controlerUsuarios;
     /**
      * Creates new form JDlgUsuariosPesquisar

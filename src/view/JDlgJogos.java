@@ -23,7 +23,49 @@ public class JDlgJogos extends javax.swing.JDialog {
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
           Util.limpar(jTxtIdlfs_Jogos, jTxtLfs_nome_jogo,jCboLfs_classificacao_indicativa );
     }
-    //brasil vai brasil
+   
+        public void beanView(JogosBean jogosbean) {
+        jTxtIdlfs_Jogos.setText(Util.intToStr(jogos.getIdjogos()));
+         jTxtLfs_nome_jogo.setText(jogoss.getNomeJogo());
+         jCboLfs_classificacao_indicativa.setText(jogos.getClassificacaoIndicativa());
+         jCboLfs_genero.setText(jogos.getGenero());
+         jTxtLfs_preco.setText(jogos.getPreco());
+         jTxtLfs_descricao.setText(jogos.getDescricao());
+         jFmtLfs_data_lancamento.setText(jogos.getDataLancamento());
+         jTxtLfs_estoque.setText(jogos.getEstoque());
+         jCboLfs_idioma.setText(jogos.getIdioma());
+         jFmtLfs_data_adicionado.setText(jogos.getDataAdicioando());
+         jTxtLfs_desenvolvedora.setText(jogos.getDesenvolvedora());
+         jTxtLfs_avaliacao_media.setText(jogos.getAvaliacaoMedia());
+         jTxtLfs_modo_de_jogo.setText(jogos.getModoDeJogo());
+         jCboLfs_plataforma.setText(jogos.getPlataforma());
+         jChbLfs_status_disponibilidade.setText(jogos.getStatusDisponibilidade());
+        
+        
+   
+    }
+         public Jogos viewBean(){
+         Jogos jogos = new Jogos();
+         int codigo = Util.strToInt( jTxtIdlfs_Jogos.getText());
+         jogos.setIdjogoss(codigo);
+     
+        jogos.setNome(jTxtLfs_nome_jogo.getText());
+        jogos.setClassificacaoIndicativa(jCboLfs_classificacao_indicativa.getText());
+        jogos.setGenero(jCboLfs_genero.getText());
+         jogos.setPreco( Util.strToDate( jTxtLfs_preco.getText()));
+       jogos.setDescricao(jTxtLfs_descricao.getText());
+       jogos.setDataLancamento(jFmtLfs_data_lancamento.getText());
+       jogos.setEstoque(jTxtLfs_estoque.getText());
+       jogos.setIdioma(jCboLfs_idioma.getText());
+       jogos.setDataAdicioando(jFmtLfs_data_adicionado.getText());
+       jogos.setDesenvolvedora(jTxtLfs_desenvolvedora.getText());
+       jogos.setAvaliacaoMedia(jTxtLfs_avaliacao_media.getText());
+       jogos.setModoDeJogo(jTxtLfs_modo_de_jogo.getText());
+       jogos.setPlataforma(jCboLfs_plataforma.getText());
+       jogos.setStatusDisponibilidade(jChbLfs_status_disponibilidade.getText());
+
+               return jogos;
+    }
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -334,17 +376,22 @@ public class JDlgJogos extends javax.swing.JDialog {
                jTxtLfs_modo_de_jogo, jCboLfs_plataforma, jChbLfs_status_disponibilidade, jBtnConfirmar, jBtnCancelar);
         
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.limpar(jTxtIdlfs_Jogos,jTxtLfs_nome_jogo,  jCboLfs_classificacao_indicativa,
-                jCboLfs_genero, jTxtLfs_preco, jTxtLfs_descricao, jFmtLfs_data_lancamento, 
-                jTxtLfs_estoque, jCboLfs_idioma,jFmtLfs_data_adicionado,jTxtLfs_desenvolvedora,jTxtLfs_avaliacao_media,
-               jTxtLfs_modo_de_jogo, jCboLfs_plataforma, jChbLfs_status_disponibilidade);   
-
+       
        
 
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
-         Util.pergunta("Desja excluir??");
+           JogosDao jogosDAO = new JogosDao();
+         jogosDAO.delete( viewBean());
+      if (Util.perguntar("Deseja Excluir?") == true){
+      
+          
+      }
+       Util.limpar(jTxtIdlfs_Jogos,jTxtLfs_nome_jogo,  jCboLfs_classificacao_indicativa,
+                jCboLfs_genero, jTxtLfs_preco, jTxtLfs_descricao, jFmtLfs_data_lancamento, 
+                jTxtLfs_estoque, jCboLfs_idioma,jFmtLfs_data_adicionado,jTxtLfs_desenvolvedora,jTxtLfs_avaliacao_media,
+               jTxtLfs_modo_de_jogo, jCboLfs_plataforma, jChbLfs_status_disponibilidade);   
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
@@ -377,7 +424,6 @@ public class JDlgJogos extends javax.swing.JDialog {
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
 
 JDlgJogosPesquisar jDlgJogosPesquisar = new JDlgJogosPesquisar(null, true);
-        jDlgJogosPesquisar.setTelaPai(this);
         jDlgJogosPesquisar.setVisible(true);      
 
       

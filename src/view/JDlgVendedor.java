@@ -25,7 +25,28 @@ public class JDlgVendedor extends javax.swing.JDialog {
                 jBtnConfirmar, jBtnCancelar);
             
     }
-
+         public void beanView(VendedorBean vendedorbean) {
+        jTxtIdlfs_vendedor.setText(Util.intToStr( vendedorbean.getIdvendedor()));
+         jTxtLfs_descricao.setText(vendedorbean.getDescricao());
+          jTxtLfs_nome.setText(vendedorbean.getNome());
+         jFmtLfs_cpf.setText(vendedorbean.getCpf());
+         jFmtLfs_data_nascimento.setText(Util.dateToStr(vendedorbean.getDataNascimento()));
+         jFmtLfs_telefone.setText(vendedorbean.getTelefone());
+         jTxtLfs_salario.setSelectedIndex(vendedorbean.getSalario());
+   
+    }
+         public Vendedor viewBean(){
+         Vendedor vendedorbean = new Vendedor();
+         int codigo = Util.strToInt( jTxtIdlfs_vendedor.getText());
+         vendedorbean.setIdvendedorbean(codigo);
+     
+        vendedorbean.setDescricao(jTxtLfs_descricao.getText());
+        vendedorbean.setNome(jTxtLfs_nome.getText());
+        vendedorbean.setCpf(jFmtLfs_cpf.getText());
+         vendedorbean.setDataNascimento( Util.strToDate(jFmtLfs_data_nascimento.getText()));
+       vendedorbean.setTelefone(jFmtLfs_telefone.getText());
+         vendedorbean.setSalario(jTxtLfs_salario.getText());
+    }       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -260,15 +281,20 @@ public class JDlgVendedor extends javax.swing.JDialog {
                 jFmtLfs_cpf, jFmtLfs_data_nascimento, jFmtLfs_telefone, jTxtLfs_salario, 
                 jBtnConfirmar ,jBtnCancelar);
         
-        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.limpar( jTxtIdlfs_vendedor, jTxtLfs_descricao,  jTxtLfs_nome,
-                jFmtLfs_cpf, jFmtLfs_data_nascimento, jFmtLfs_telefone, jTxtLfs_salario, 
-                jBtnConfirmar );  
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);  
 
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
-        Util.pergunta("Desja excluir??");
+        VendedorDao usuariosDAO = new VendedorDao();
+         usuariosDAO.delete( viewBean());
+      if (Util.perguntar("Deseja Excluir?") == true){
+      
+        
+      }
+      Util.limpar(jTxtIdlfs_vendedor, jTxtLfs_descricao, jTxtLfs_nome, 
+                jFmtLfs_cpf,  jFmtLfs_data_nascimento, 
+                jFmtLfs_telefone , jTxtLfs_salario; 
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
@@ -299,8 +325,7 @@ public class JDlgVendedor extends javax.swing.JDialog {
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
 
   JDlgVendedorPesquisar jDlgVendedorPesquisar = new JDlgVendedorPesquisar(null, true);
-        jDlgVendedorPesquisar.setTelaPai(this);
-
+            jDlgVendedorPesquisar.setVisible(true);
        
 
     }//GEN-LAST:event_jBtnPesquisarActionPerformed

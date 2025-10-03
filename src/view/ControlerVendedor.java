@@ -3,25 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package view;
-
-import bean.Lfs_vendedor;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-
+//abc
 /**
  *
  * @author u05084603105
  */
 public class ControlerVendedor extends AbstractTableModel {
 
-    List lista;
+   private  List lista;
 
     public void setList(List lista) {
         this.lista = lista;
     }
 
-    public Object getBean(int rowIndex) {
-        return lista.get(rowIndex);
+    public VendedorBean getBean(int rowIndex) {
+        return (VendedorBean)lista.get(rowIndex);
 
     }
 
